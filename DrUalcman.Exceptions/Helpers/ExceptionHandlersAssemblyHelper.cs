@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
 
-namespace DrUalcman.Exceptions.Presenters;
+namespace DrUalcman.Exceptions.Helpers;
 
 /// <summary>
 /// Helper to get the execution assembly
 /// </summary>
-public static class ExceptionHandlersPresenters
+public static class ExceptionHandlersAssemblyHelper
 {
     /// <summary>
     /// Get the executing assembly

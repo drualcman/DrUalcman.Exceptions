@@ -1,4 +1,5 @@
-﻿using DrUalcman.Exceptions.Interfaces;
+﻿using DrUalcman.Exceptions.Helpers;
+using DrUalcman.Exceptions.Interfaces;
 using DrUalcman.Exceptions.Models;
 using System.Reflection;
 
@@ -17,7 +18,7 @@ public class ExceptionPresenter : IExceptionPresenter
     /// <summary>
     /// Constructor get fro default the execution assembly for search all the exceptions
     /// </summary>
-    public ExceptionPresenter() : this(ExceptionHandlersPresenters.Assembly) { }
+    public ExceptionPresenter() : this(ExceptionHandlersAssemblyHelper.Assembly) { }
 
     /// <summary>
     /// Constructor will search all the exception handlers
