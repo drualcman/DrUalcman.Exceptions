@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DrUalcman.Exceptions.Models;
 
 namespace DrUalcman.Exceptions.Interfaces
 {
     /// <summary>
-    /// Abstraccion para la abstraccion
+    /// Exception handler abstraction
     /// </summary>
     public interface IExceptionHandler<ExceptionType> where ExceptionType : Exception
     {
         /// <summary>
-        /// Manejar la excepcion
+        /// Exception handle
         /// </summary>
         /// <param name="exception"></param>
         /// <returns></returns>
