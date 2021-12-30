@@ -18,9 +18,7 @@ public static class MiddleWareContainer
     /// <returns></returns>
     public static IApplicationBuilder UseExceptionHandlerPresenter(this IApplicationBuilder app, IHostEnvironment enviroment, IExceptionPresenter presenter)
     {
-        app.Use((context, next) => MiddleWare.WriteResponse(context,
-            enviroment.IsDevelopment(), presenter));
-
+        app.Use((context, next) => MiddleWare.WriteResponse(context, enviroment.IsDevelopment(), presenter));
         return app;
     }
 }
