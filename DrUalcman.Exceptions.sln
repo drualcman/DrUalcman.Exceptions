@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrUalcman.Exceptions", "DrUalcman.Exceptions\DrUalcman.Exceptions.csproj", "{DC47FF8E-6A19-4A63-B312-0D82C064F784}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrUalcman.Exceptions.MiddleWare", "DrUalcman.Exceptions.MiddleWare\DrUalcman.Exceptions.MiddleWare.csproj", "{80D994F5-3443-4EA8-B5FB-61725122F5EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DC47FF8E-6A19-4A63-B312-0D82C064F784}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC47FF8E-6A19-4A63-B312-0D82C064F784}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC47FF8E-6A19-4A63-B312-0D82C064F784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D994F5-3443-4EA8-B5FB-61725122F5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D994F5-3443-4EA8-B5FB-61725122F5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D994F5-3443-4EA8-B5FB-61725122F5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D994F5-3443-4EA8-B5FB-61725122F5EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
