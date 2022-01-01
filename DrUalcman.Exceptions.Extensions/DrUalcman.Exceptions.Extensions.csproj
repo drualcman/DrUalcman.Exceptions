@@ -1,19 +1,37 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Company>DrUalcman</Company>
+	  <Authors>Sergi Ortiz Gomez, Miguel Muñoz Serafin</Authors>
+	  <Copyright>Free</Copyright>
+	  <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+	  <PackageTags>exceptions, clean architecture, net6</PackageTags>
+	  <RepositoryType>git</RepositoryType>
+	  <RepositoryUrl>https://github.com/drualcman/DrUalcman.Exceptions.git</RepositoryUrl>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageProjectUrl>https://github.com/drualcman/DrUalcman.Exceptions</PackageProjectUrl>
+	  <Title>
+		  DrUalcman.Exceptions.Extensions
+	  </Title>
+	  <Description>Add easy DrUalcman.Exceptions to the Service Container </Description>
+	  <Sumary>
+		  Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
+		  Always return a ProblemDetails following the standart rfc7807.
+	  </Sumary>
+	  <PackageReleaseNotes>Remove all unnecesary packeges</PackageReleaseNotes>
+	  <Version>1.0.2</Version>
+	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="DrUalcman.Exceptions" Version="1.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
 	</ItemGroup>
-
-	<ItemGroup>
-    <ProjectReference Include="..\DrUalcman.Exceptions\DrUalcman.Exceptions.csproj" />
-  </ItemGroup>
 
 
 	<ItemGroup>

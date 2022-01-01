@@ -1,21 +1,36 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Company>DrUalcman</Company>
+	  <Authors>Sergi Ortiz Gomez, Miguel Muñoz Serafin</Authors>
+	  <Copyright>Free</Copyright>
+	  <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+	  <PackageTags>exceptions, clean architecture, net6</PackageTags>
+	  <RepositoryType>git</RepositoryType>
+	  <RepositoryUrl>https://github.com/drualcman/DrUalcman.Exceptions.git</RepositoryUrl>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageProjectUrl>https://github.com/drualcman/DrUalcman.Exceptions</PackageProjectUrl>
+	  <Title>
+		  DrUalcman.Exceptions.MiddleWare
+	  </Title>
+	  <Description>Add easy a middleware to DrUalcman.Exceptions</Description>
+	  <Sumary>Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
+		  Always return a ProblemDetails following the standart rfc7807.</Sumary>
+	  <PackageReleaseNotes>First stable release.</PackageReleaseNotes>
+	  <Version>1.0.1</Version>
+	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="DrUalcman.Exceptions.Extensions" Version="1.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\DrUalcman.Exceptions.Extensions\DrUalcman.Exceptions.Extensions.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
