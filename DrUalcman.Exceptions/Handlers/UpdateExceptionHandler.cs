@@ -15,10 +15,6 @@ public class UpdateExceptionHandler : IExceptionHandler<UpdateException>
     /// <returns></returns>
     public ValueTask<ProblemDetails> Handle(UpdateException exception)
     {
-        Dictionary<string, string> exceptions = new Dictionary<string, string>
-            {
-                { "entities", string.Join(",", exception.Entries) }
-            };
         var problemDetails = new ProblemDetails
         {
             Status = StatusCodes.Status400BadRequest,
@@ -26,7 +22,7 @@ public class UpdateExceptionHandler : IExceptionHandler<UpdateException>
             Title = "Update exception",
             Detail = exception.Message
         };
-        problemDetails.Extensions.Add("invalid-params", exceptions);
+        problemDetails.InvalidParams.Add("entries", string.Join(",", exception.Entries));
         return ValueTask.FromResult(problemDetails);
     }
 }

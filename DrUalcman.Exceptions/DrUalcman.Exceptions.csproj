@@ -19,8 +19,9 @@
 		  DrUalcman.Exceptions
 	  </Title>
 	  <Description>Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project. 
-Always return a ProblemDetails following the standart rfc7807.</Description>
-    <PackageReleaseNotes>First stable release.</PackageReleaseNotes>
+Always return a ProblemDetails following the standart rfc7807. 
+Have a ProblemDetailsException for can generate directly a exception with the standart rfc7807 from some type HttpClient. </Description>
+    <PackageReleaseNotes>Add ProblemDetailsException</PackageReleaseNotes>
     <Version>1.0.1</Version>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>

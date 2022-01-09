@@ -15,20 +15,6 @@ public class ValidationExceptionHandler : IExceptionHandler<ValidationException>
     /// <returns></returns>
     public ValueTask<ProblemDetails> Handle(ValidationException exception)
     {
-        Dictionary<string, string> extensions =
-            new Dictionary<string, string>();
-
-        foreach (var failure in exception.Failures)
-        {
-            if (extensions.ContainsKey(failure.PropertyName))
-            {
-                extensions[failure.PropertyName] += " " + failure.ErrorMessage;
-            }
-            else
-            {
-                extensions.Add(failure.PropertyName, failure.ErrorMessage);
-            }
-        }
         var ProblemDetails = new ProblemDetails
         {
             Status = StatusCodes.Status400BadRequest,
@@ -36,7 +22,18 @@ public class ValidationExceptionHandler : IExceptionHandler<ValidationException>
             Title = "Exception when validate the entrie/s.",
             Detail = "One or more exceptions occurs."
         };
-        ProblemDetails.Extensions.Add("invalid-params", extensions);
+
+        foreach (var failure in exception.Failures)
+        {
+            if (ProblemDetails.InvalidParams.ContainsKey(failure.PropertyName))
+            {
+                ProblemDetails.InvalidParams[failure.PropertyName] += " " + failure.ErrorMessage;
+            }
+            else
+            {
+                ProblemDetails.InvalidParams.Add(failure.PropertyName, failure.ErrorMessage);
+            }
+        }
         return ValueTask.FromResult(ProblemDetails);
     }
 }

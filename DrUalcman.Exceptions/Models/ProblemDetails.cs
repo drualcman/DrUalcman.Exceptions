@@ -36,13 +36,9 @@ public class ProblemDetails
 
     /// <summary>
     /// Gets the System.Collections.Generic.IDictionary`2 for extension members.
-    /// Problem type definitions MAY extend the problem details object with additional
-    /// members. Extension members appear in the same namespace as other members of a problem type.
+    /// Problem type definitions MAY extend the problem details object with additional members. 
+    /// Extension members appear in the same namespace as other members of a problem type.
     /// </summary>
-    /// <remarks>
-    /// The round-tripping behavior for Microsoft.AspNetCore.Mvc.ProblemDetails.Extensions is determined by the implementation of the Input \ Output formatters. In particular,
-    /// complex types or collection types may not round-trip to the original type when using the built-in JSON or XML formatters.
-    /// </remarks>
-    public IDictionary<string, object> Extensions { get; } = new Dictionary<string, object>(StringComparer.Ordinal);
+    public IDictionary<string, string> InvalidParams { get; } = new Dictionary<string, string>(StringComparer.Ordinal);
 
 }

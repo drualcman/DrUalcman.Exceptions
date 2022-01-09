@@ -27,3 +27,17 @@ app.UseExceptionHandler(builder =>
                     app.Services.GetService<IExceptionPresenter>()));
 ```
 
+#ExceptionView for Blazor
+Basic
+```
+<ExceptionView>
+    @Body
+</ExceptionView>  
+```
+Personalize text button
+```
+<ExceptionView ButtonText="<span class='oi oi-home'></span> OK">
+    @Body
+</ExceptionView>  
+```
+

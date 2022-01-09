@@ -1,0 +1,74 @@
+﻿<ErrorBoundary @ref=ErrorBoundaryRef>
+    <ChildContent>
+        @ChildContent
+    </ChildContent>
+    <ErrorContent>
+        <div class="alert alert-danger">
+            @if (context.GetType() == typeof(ProblemDetailsException))
+            {
+                var ex = context as ProblemDetailsException;
+                <div>
+                    @ex?.Message
+                </div>
+                <div>
+                    @ex?.ProblemDetail?.Instance [<a href="@ex?.ProblemDetail.Type" target="_blank">@ex?.ProblemDetail?.Status</a>]
+                </div>
+                <div>
+                    @ex?.ProblemDetail?.Title
+                </div>
+                <div>
+                    @ex?.ProblemDetail?.Detail
+                </div>
+                if (ex?.ProblemDetail?.InvalidParams != null)
+                {
+                    <ul>
+                        @foreach (var failure in ex.ProblemDetail.InvalidParams)
+                        {
+                            <li>
+                                @failure.Key: @failure.Value
+                            </li>
+                        }
+                    </ul>
+                }
+            }
+            else
+            {
+                <div>
+                    @context.Message
+                </div>
+            }
+        </div>
+        <button class="btn btn-danger" @onclick=Recover>@ToHtml(ButtonText)</button>
+    </ErrorContent>
+</ErrorBoundary>
+
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string ButtonText { get; set; } = "OK";
+
+    /// <summary>
+    /// capturar exceptiones
+    /// </summary>
+    ErrorBoundary ErrorBoundaryRef;
+
+    void Recover()
+    {
+        ErrorBoundaryRef?.Recover();
+    }
+
+    /// <summary>
+    /// Convert string into a HTML markup to show correctly in the page
+    /// </summary>
+    /// <param name="content"></param>
+    /// <returns></returns>
+    MarkupString ToHtml(string content)
+    {
+        string addBr = content.Replace(Environment.NewLine, "<br/>").Replace("\n\r", "<br/>");
+        MarkupString result = new MarkupString(addBr);
+        return result;
+    }
+}
