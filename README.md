@@ -27,7 +27,7 @@ app.UseExceptionHandler(builder =>
                     app.Services.GetService<IExceptionPresenter>()));
 ```
 
-#ExceptionView for Blazor
+# ExceptionView for Blazor
 Basic
 ```
 <ExceptionView>

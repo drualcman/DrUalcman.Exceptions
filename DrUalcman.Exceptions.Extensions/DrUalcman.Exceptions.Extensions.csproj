@@ -23,13 +23,13 @@
 		  Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.
 	  </Sumary>
-	  <PackageReleaseNotes>Remove all unnecesary packeges</PackageReleaseNotes>
+	  <PackageReleaseNotes>Update reference to DrUalcman.Exceptions 1.0.1</PackageReleaseNotes>
 	  <Version>1.0.2</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DrUalcman.Exceptions" Version="1.0.0" />
+		<PackageReference Include="DrUalcman.Exceptions" Version="1.0.1" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
 	</ItemGroup>
 

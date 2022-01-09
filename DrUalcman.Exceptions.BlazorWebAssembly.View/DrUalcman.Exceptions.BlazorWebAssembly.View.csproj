@@ -4,6 +4,24 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Company>DrUalcman</Company>
+	  <Authors>Sergi Ortiz Gomez, Miguel Muñoz Serafin</Authors>
+	  <Copyright>Free</Copyright>
+	  <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+	  <PackageTags>exceptions, clean architecture, net6</PackageTags>
+	  <RepositoryType>git</RepositoryType>
+	  <RepositoryUrl>https://github.com/drualcman/DrUalcman.Exceptions.git</RepositoryUrl>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageProjectUrl>https://github.com/drualcman/DrUalcman.Exceptions</PackageProjectUrl>
+	  <Title>
+		  DrUalcman.Exceptions
+	  </Title>
+	  <Description>Encapsulate ErrorBoundary to use with DrUalcman.Exceptions.ProblemDetailException to simplify how to use Erropr Boundary.</Description>
+	  <PackageReleaseNotes>First release</PackageReleaseNotes>
+	  <Version>1.0.0</Version>
+	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
 
@@ -12,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DrUalcman.Exceptions" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.1" />
   </ItemGroup>
 
@@ -19,8 +38,18 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DrUalcman.Exceptions\DrUalcman.Exceptions.csproj" />
-  </ItemGroup>
+
+
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\License.txt">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
 
 </Project>
