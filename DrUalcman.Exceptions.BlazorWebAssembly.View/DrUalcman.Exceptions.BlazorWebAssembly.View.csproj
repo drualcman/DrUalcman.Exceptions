@@ -19,8 +19,8 @@
 		  DrUalcman.Exceptions
 	  </Title>
 	  <Description>Encapsulate ErrorBoundary to use with DrUalcman.Exceptions.ProblemDetailException to simplify how to use Erropr Boundary.</Description>
-	  <PackageReleaseNotes>First release</PackageReleaseNotes>
-	  <Version>1.0.0</Version>
+	  <PackageReleaseNotes>Add some css to independt the content from the css framworks. Use same layout about bootstrap. If you want to overwrite must be use !important.</PackageReleaseNotes>
+	  <Version>1.0.1</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
@@ -38,8 +38,6 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
-
-
 	<ItemGroup>
 		<None Include="..\README.md">
 			<Pack>True</Pack>
@@ -50,6 +48,4 @@
 			<PackagePath></PackagePath>
 		</None>
 	</ItemGroup>
-
-
 </Project>

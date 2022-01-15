@@ -3,19 +3,20 @@ Manage 3 most common exceptions with a default handler using clean architecture.
 Always return a ProblemDetails following the standart rfc7807.
 
 # NuGet installation
-```PM> Install-Package DrUalcman-Excep[tions]```
+```PM> Install-Package DrUalcman.Exceptions```
 
 # How to use
-Implement interface 
-```IExceptionHandler<ExceptionType>```
-in the handlers for the exception. Then inject in the ServiceContainer
+```PM> IExceptionHandler<ExceptionType>```
+Implement interface in the handlers for the exception. Then inject in the ServiceContainer
 ```services.AddSingleton<IExceptionPresenter, ExceptionPresenter>();```
 
 # Extensions
+```PM> Install-Package DrUalcman.Exceptions.Extensions```
 Also can add DrUalcman.Exception.Extension. This DLL only have a dependecy containder extension method to simplify the injection.
 ```services.AddExceptionsHandlerPresenter()``` or ```services.AddExceptionsHandlerPresenter([Assembly])```
 
 # MiddleWare
+```PM> Install-Package DrUalcman.Exceptions.MiddleWare```
 Also can add DrUalcman.Exceptions.MiddleWare. This DLL have the methods to add like a MiddleWare.
 ```
 /// when build
@@ -28,6 +29,7 @@ app.UseExceptionHandler(builder =>
 ```
 
 # ExceptionView for Blazor
+```PM> Install-Package DrUalcman.Exceptions.BlazorWebAssembly.View```
 Basic
 ```
 <ExceptionView>
