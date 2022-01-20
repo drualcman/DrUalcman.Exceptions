@@ -14,6 +14,14 @@ Implement interface in the handlers for the exception. Then inject in the Servic
 ```PM> Install-Package DrUalcman.Exceptions.Extensions```
 Also can add DrUalcman.Exception.Extension. This DLL only have a dependecy containder extension method to simplify the injection.
 ```services.AddExceptionsHandlerPresenter()``` or ```services.AddExceptionsHandlerPresenter([Assembly])```
+## HttpResponseMessage
+We have now a estension method for HttpResponseMessage, return a ```ProblemDetailsException``` to ensure have this exception fromated returned.
+```
+using HttpResponseMessage response = HttpCliente.GetAsync("endpoint");
+response.EnsureSuccessCode();
+return response;
+```
+This return a ```ProblemDetailException``` if the transaction is not Success. If the conent response is formated with a ```ProblemDetail``` parse correctly all the data.
 
 # MiddleWare
 ```PM> Install-Package DrUalcman.Exceptions.MiddleWare```

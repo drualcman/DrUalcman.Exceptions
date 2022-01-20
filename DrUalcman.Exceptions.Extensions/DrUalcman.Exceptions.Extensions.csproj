@@ -23,8 +23,8 @@
 		  Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.
 	  </Sumary>
-	  <PackageReleaseNotes>Update reference to DrUalcman.Exceptions 1.0.1</PackageReleaseNotes>
-	  <Version>1.0.2</Version>
+	  <PackageReleaseNotes>Add new extension method for HttpResponseMessage EnsureSuccessCode()</PackageReleaseNotes>
+	  <Version>1.0.3</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
