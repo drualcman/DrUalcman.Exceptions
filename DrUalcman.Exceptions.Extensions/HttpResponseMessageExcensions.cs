@@ -25,8 +25,9 @@ namespace DrUalcman.Exceptions.Extensions
             else
             {
                 string responseContent = response.Content.ReadAsStringAsync().Result;
-                string invalidParams = Regex.Match(responseContent, "{[^{^}]*}").Value;
-                IDictionary<string, string> keyValuePairs = JsonSerializer.Deserialize<IDictionary<string, string>>(invalidParams);
+                string invalidParams = Regex.Match(responseContent, "{[^{^}]*}").Value;                
+                IDictionary<string, string> keyValuePairs = new  Dictionary<string, string>();
+                if (!string.IsNullOrEmpty(invalidParams)) keyValuePairs = JsonSerializer.Deserialize<IDictionary<string, string>>(invalidParams);
                 ProblemDetails exception = JsonSerializer.Deserialize<ProblemDetails>(responseContent, new JsonSerializerOptions { PropertyNameCaseInsensitive = false });
                 foreach (KeyValuePair<string, string> item in keyValuePairs)
                 {
