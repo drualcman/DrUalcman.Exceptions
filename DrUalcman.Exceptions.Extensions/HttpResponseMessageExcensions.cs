@@ -31,7 +31,7 @@ namespace DrUalcman.Exceptions.Extensions
                 ProblemDetails exception = JsonSerializer.Deserialize<ProblemDetails>(responseContent, new JsonSerializerOptions { PropertyNameCaseInsensitive = false });
                 foreach (KeyValuePair<string, string> item in keyValuePairs)
                 {
-                    exception.InvalidParams.Add(item.Key, item.Value);
+                    exception.InvalidParams.TryAdd(item.Key, item.Value);
                 }
 
                 throw new ProblemDetailsException(exception);
