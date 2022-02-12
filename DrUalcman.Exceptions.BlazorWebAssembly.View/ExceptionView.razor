@@ -6,17 +6,14 @@
         <div class="alert alert-danger">
             @if (context.GetType() == typeof(ProblemDetailsException))
             {
-                var ex = context as ProblemDetailsException;
+                ProblemDetailsException ex = context as ProblemDetailsException;
                 <div>
-                    @ex?.Message
-                </div>
-                <div>
+                    @ex?.Message<br/>
                     @ex?.ProblemDetail?.Instance [<a href="@ex?.ProblemDetail.Type" target="_blank">@ex?.ProblemDetail?.Status</a>]
                 </div>
                 <div>
                     @ex?.ProblemDetail?.Title
-                </div>
-                <div>
+                    <hr/>
                     @ex?.ProblemDetail?.Detail
                 </div>
                 if (ex?.ProblemDetail?.InvalidParams != null)
@@ -30,6 +27,51 @@
                         }
                     </ul>
                 }
+            }
+            else if (context.GetType() == typeof(ValidationException))
+            {
+                ValidationException ex = context as ValidationException;
+                <div>
+                    @ex?.Message
+                </div>
+                if (ex?.Failures != null)
+                {
+                    <ul>
+                        @foreach (var failure in ex.Failures)
+                        {
+                            <li>
+                                @failure.PropertyName: @failure.ErrorMessage
+                            </li>
+                        }
+                    </ul>
+                }
+            }
+            else if (context.GetType() == typeof(UpdateException))
+            {
+                UpdateException ex = context as UpdateException;
+                <div>
+                    @ex?.Message
+                </div>
+                if (ex?.Entries != null)
+                {
+                    <ul>
+                        @foreach (var failure in ex.Entries)
+                        {
+                            <li>
+                                @failure
+                            </li>
+                        }
+                    </ul>
+                }
+            }
+            else if (context.GetType() == typeof(GeneralException))
+            {
+                GeneralException ex = context as GeneralException;                
+                <div>
+                    @ex?.Message
+                    <hr/>                
+                    @ex?.Detail
+                </div>
             }
             else
             {

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -18,9 +18,9 @@
 	  <Title>
 		  DrUalcman.Exceptions
 	  </Title>
-	  <Description>Encapsulate ErrorBoundary to use with DrUalcman.Exceptions.ProblemDetailException to simplify how to use Erropr Boundary.</Description>
-	  <PackageReleaseNotes>Add some css to independt the content from the css framworks. Use same layout about bootstrap. If you want to overwrite must be use !important.</PackageReleaseNotes>
-	  <Version>1.0.1</Version>
+	  <Description>Encapsulate ErrorBoundary to use with DrUalcman.Exceptions to simplify how to use Erropr Boundary and show the errors depending of the exception or coming form a ProblemDetails</Description>
+	  <PackageReleaseNotes>Add in the layout for the exception all the possibles Exceptions from the nugget. Can can use this component also with a throw exceptions from a code using ProblemDetailsExceptions, UpdateException, ValidationException or General Exception.</PackageReleaseNotes>
+	  <Version>1.0.2</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
