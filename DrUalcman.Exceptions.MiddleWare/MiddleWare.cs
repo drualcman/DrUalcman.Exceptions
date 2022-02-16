@@ -27,7 +27,7 @@ class MiddleWare
         {
             await presenter.Handle(exception, includeDetails);
             context.Response.ContentType = "application/problem+json";
-            context.Response.StatusCode = (int)presenter.Content.Status;
+            context.Response.StatusCode = presenter.Content.Status;
             var stream = context.Response.Body;
             await JsonSerializer.SerializeAsync(stream, presenter.Content);
         }
