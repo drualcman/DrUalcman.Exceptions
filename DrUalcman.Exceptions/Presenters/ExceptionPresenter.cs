@@ -68,7 +68,8 @@ public class ExceptionPresenter : IExceptionPresenter
                     Status = StatusCodes.Status412PreconditionFailed,
                     Type = "https://datatracker.ietf.org/doc/html/rfc7231#section6.6.1",
                     Title = includeDetails ? ex.Message : "An error occurred while processing the response",
-                    Detail = includeDetails ? ex.ToString() : "Consult the administrator"
+                    Detail = includeDetails ? ex.ToString() : "Consult the administrator",
+                    Instance = ex.Source ?? ""
                 };
             }
         }
@@ -79,7 +80,8 @@ public class ExceptionPresenter : IExceptionPresenter
                 Status = StatusCodes.Status500InternalServerError,
                 Type = "https://datatracker.ietf.org/doc/html/rfc7231#section6.6.1",
                 Title = includeDetails ? ex.Message : "An error occurred while processing the response",
-                Detail = includeDetails ? ex.ToString() : "Consult the administrator"
+                Detail = includeDetails ? ex.ToString() : "Consult the administrator",
+                Instance = ex.Source ?? ""
             };
         }
         Content = problem;
