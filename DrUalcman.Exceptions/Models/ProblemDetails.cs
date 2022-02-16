@@ -4,7 +4,7 @@
 /// A machine-readable format for specifying errors in HTTP API responses based on
 /// https://datatracker.ietf.org/doc/html/rfc7807
 /// </summary>
-public class ProblemDetails
+public record struct ProblemDetails
 {
     /// <summary>
     /// A URI reference [RFC3986] that identifies the problem type.
