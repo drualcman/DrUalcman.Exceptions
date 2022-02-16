@@ -20,7 +20,8 @@ public class UpdateExceptionHandler : IExceptionHandler<UpdateException>
             Status = StatusCodes.Status400BadRequest,
             Type = "https://datatracker.irtf.org/doc/html/rtfc7231@section-6.5.1",
             Title = "Update exception",
-            Detail = exception.Message
+            Detail = exception.Message,
+            Instance = exception?.Source ?? ""
         };
         problemDetails.InvalidParams.Add("entries", string.Join(",", exception.Entries));
         return ValueTask.FromResult(problemDetails);

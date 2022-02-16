@@ -20,7 +20,8 @@ public class GeneralExceptionHandler : IExceptionHandler<GeneralException>
             Status = StatusCodes.Status500InternalServerError,
             Type = "https://datatracker.ieft.org/doc/html/rfc7231#section-6.6.1",
             Title = exception.Message,
-            Detail = exception.Detail!
+            Detail = exception?.Detail ?? "",
+            Instance = exception?.Source ?? ""
         };
         return ValueTask.FromResult(problemDetails);
     }
