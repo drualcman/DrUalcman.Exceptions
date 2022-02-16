@@ -53,7 +53,7 @@ public class ValidationException : Exception
     /// Constructor can receive collection of KeyValuePair
     /// </summary>
     /// <param name="message"></param>
-    /// <param name="failues">Error list in KeyValuePair key is property name and value is error message</param>
+    /// <param name="failues">list KeyValuePair key = property name, value = error message</param>
     public ValidationException(string message, IEnumerable<KeyValuePair<string, string>> failues) : base(message)
     {
         Failures = new List<Failure>();
