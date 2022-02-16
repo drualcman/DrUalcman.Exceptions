@@ -36,4 +36,33 @@ public class ValidationException : Exception
     /// <param name="failures"></param>
     public ValidationException(IReadOnlyList<IFailure> failures) : base($"Found {failures.Count}.") =>
         Failures = failures;
+
+    /// <summary>
+    /// Constructor to send only one error
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="propertyName"></param>
+    /// <param name="error"></param>
+    public ValidationException(string message, string propertyName, string error) : base(message) =>
+        Failures = new List<Failure>
+        {
+            new Failure(propertyName, error)
+        };
+
+    /// <summary>
+    /// Constructor can receive collection of KeyValuePair
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="failues">Error list in KeyValuePair key is property name and value is error message</param>
+    public ValidationException(string message, IEnumerable<KeyValuePair<string, string>> failues) : base(message)
+    {
+        Failures = new List<Failure>();
+        foreach (var failure in failues)
+        {
+            if (Failures.FirstOrDefault(f=> f.PropertyName == failure.Key && f.ErrorMessage == failure.Value) is null)
+            {
+                Failures.Append(new Failure(failure.Key, failure.Value));
+            }
+        }
+    }
 }
