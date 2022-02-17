@@ -27,7 +27,7 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DrUalcman.Exceptions.Extensions" Version="1.0.2" />
+		<PackageReference Include="DrUalcman.Exceptions.Extensions" Version="1.0.3" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
