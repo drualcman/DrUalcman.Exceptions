@@ -21,4 +21,14 @@ public static class MiddleWareContainer
         app.Use((context, next) => MiddleWare.WriteResponse(context, enviroment.IsDevelopment(), presenter));
         return app;
     }
+
+    /// <summary>
+    /// Inject exception handle presneters
+    /// </summary>
+    /// <param name="app"></param>
+    /// <param name="enviroment"></param>
+    /// <param name="presenter"></param>
+    /// <returns></returns>
+    public static IApplicationBuilder UseExceptionHandlerMiddleware(this IApplicationBuilder app, IHostEnvironment enviroment, IExceptionPresenter presenter) =>
+        UseExceptionHandlerPresenter(app, enviroment, presenter);
 }
