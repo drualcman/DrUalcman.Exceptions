@@ -18,7 +18,7 @@ public class ValidationExceptionHandler : IExceptionHandler<ValidationException>
         var ProblemDetails = new ProblemDetails
         {
             Status = StatusCodes.Status400BadRequest,
-            Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1",
+            Type = StatusCodes.GetStatusCodeType(StatusCodes.Status400BadRequest),
             Title = "Exception when validate the entrie/s.",
             Detail = "One or more exceptions occurs.",
             Instance = exception?.Source ?? ""

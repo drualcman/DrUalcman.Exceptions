@@ -18,7 +18,7 @@ public class UpdateExceptionHandler : IExceptionHandler<UpdateException>
         var problemDetails = new ProblemDetails
         {
             Status = StatusCodes.Status400BadRequest,
-            Type = "https://datatracker.irtf.org/doc/html/rtfc7231@section-6.5.1",
+            Type = StatusCodes.GetStatusCodeType(StatusCodes.Status400BadRequest),
             Title = "Update exception",
             Detail = exception.Message,
             Instance = exception?.Source ?? ""
