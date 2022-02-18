@@ -48,5 +48,13 @@ namespace DrUalcman.Exceptions
         /// <param name="problemDetails"></param>
         public ProblemDetailsException(string message, ProblemDetails problemDetails) : base(message) =>
             ProblemDetail = problemDetails;
+
+        /// <summary>
+        /// contructor que recive un jsonElement para poder serializarlo dentro del problem details
+        /// </summary>
+        /// <param name="jsonResponse"></param>
+        public ProblemDetailsException(JsonElement jsonResponse) =>
+            ProblemDetail = JsonSerializer.Deserialize<ProblemDetails>(jsonResponse.GetRawText(),
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
     }
 }
