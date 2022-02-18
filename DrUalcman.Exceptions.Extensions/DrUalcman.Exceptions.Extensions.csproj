@@ -23,13 +23,13 @@
 		  Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.
 	  </Sumary>
-	  <PackageReleaseNotes>Add new extension method for HttpResponseMessage EnsureSuccessCode()</PackageReleaseNotes>
-	  <Version>1.0.3</Version>
+	  <PackageReleaseNotes>Update depencencies references</PackageReleaseNotes>
+	  <Version>1.0.4</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DrUalcman.Exceptions" Version="1.0.1" />
+		<PackageReference Include="DrUalcman.Exceptions" Version="1.0.2" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
 	</ItemGroup>
 
