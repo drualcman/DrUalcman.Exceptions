@@ -21,7 +21,8 @@ public class ValidationExceptionHandler : IExceptionHandler<ValidationException>
             Type = StatusCodes.GetStatusCodeType(StatusCodes.Status400BadRequest),
             Title = "Exception when validate the entrie/s.",
             Detail = "One or more exceptions occurs.",
-            Instance = exception?.Source ?? ""
+            Instance = exception?.Source ?? "",
+            InvalidParams = new Dictionary<string, string>()
         };
 
         foreach (var failure in exception.Failures)

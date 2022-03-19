@@ -21,7 +21,8 @@ public class UpdateExceptionHandler : IExceptionHandler<UpdateException>
             Type = StatusCodes.GetStatusCodeType(StatusCodes.Status400BadRequest),
             Title = "Update exception",
             Detail = exception.Message,
-            Instance = exception?.Source ?? ""
+            Instance = exception?.Source ?? "",
+            InvalidParams = new Dictionary<string, string>()
         };
         problemDetails.InvalidParams.Add("entries", string.Join(",", exception.Entries));
         return ValueTask.FromResult(problemDetails);
