@@ -19,8 +19,8 @@
 		  DrUalcman.Exceptions
 	  </Title>
 	  <Description>Encapsulate ErrorBoundary to use with DrUalcman.Exceptions to simplify how to use Erropr Boundary and show the errors depending of the exception or coming form a ProblemDetails</Description>
-	  <PackageReleaseNotes>Update dependecies references. Fixed not possible null value because ProblemDetails now it's a record struct.</PackageReleaseNotes>
-	  <Version>1.0.3</Version>
+	  <PackageReleaseNotes>Change Exception view when is a ProblemDetailsException don't show is a problem detail exception.</PackageReleaseNotes>
+	  <Version>1.0.4</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
@@ -30,8 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DrUalcman.Exceptions" Version="1.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.2" />
+    <PackageReference Include="DrUalcman.Exceptions" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.3" />
   </ItemGroup>
 
   <ItemGroup>
