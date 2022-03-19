@@ -10,7 +10,7 @@
     <Authors>Sergi Ortiz Gomez, Miguel Muñoz Serafin</Authors>
     <Copyright>Free</Copyright>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    <PackageTags>exceptions, clean architecture, net6</PackageTags>
+    <PackageTags>exceptions, clean architecture, net6 </PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/drualcman/DrUalcman.Exceptions.git</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
