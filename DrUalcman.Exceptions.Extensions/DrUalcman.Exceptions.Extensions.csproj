@@ -18,18 +18,18 @@
 	  <Title>
 		  DrUalcman.Exceptions.Extensions
 	  </Title>
-	  <Description>Add easy DrUalcman.Exceptions to the Service Container </Description>
+	  <Description>Add easy DrUalcman.Exceptions to the Service Container</Description>
 	  <Sumary>
 		  Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.
 	  </Sumary>
-	  <PackageReleaseNotes>Update depencencies references</PackageReleaseNotes>
-	  <Version>1.0.4</Version>
+	  <PackageReleaseNotes>Fix a bug when the exception is not from DrUalcman.Exceptions.ProblemsDetailsException because is from ApiController ValidationException (for example) then don't show the correct invalidParamDetails. Add method EnsureSuccessCodeAsync() if want to use async actions</PackageReleaseNotes>
+	  <Version>1.0.5</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DrUalcman.Exceptions" Version="1.0.2" />
+		<PackageReference Include="DrUalcman.Exceptions" Version="1.0.3" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
 	</ItemGroup>
 
