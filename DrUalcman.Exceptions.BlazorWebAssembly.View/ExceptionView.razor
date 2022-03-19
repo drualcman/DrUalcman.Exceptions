@@ -8,10 +8,7 @@
             {
                 ProblemDetailsException ex = context as ProblemDetailsException;
                 <div>
-                    @ex?.Message<br/>
                     @ex?.ProblemDetail.Instance [<a href="@ex?.ProblemDetail.Type" target="_blank">@ex?.ProblemDetail.Status</a>]
-                </div>
-                <div>
                     @ex?.ProblemDetail.Title
                     <hr/>
                     @ex?.ProblemDetail.Detail
