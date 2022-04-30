@@ -21,7 +21,25 @@ namespace DrUalcman.Exceptions.Extensions
             if(response.IsSuccessStatusCode) return response;
             else
             {
-                ProblemDetails exception = response.Content.ReadFromJsonAsync<ProblemDetails>().Result;
+                ProblemDetails exception;
+                switch(response.StatusCode)
+                {
+                    case System.Net.HttpStatusCode.Unauthorized:
+                    case System.Net.HttpStatusCode.Forbidden:
+                    case System.Net.HttpStatusCode.NotFound:
+                        exception = new ProblemDetails("", response?.ReasonPhrase!, (int)response?.StatusCode!, "", "", null!);
+                        break;
+                    default:
+                        try
+                        {
+                            exception = response.Content.ReadFromJsonAsync<ProblemDetails>().Result;
+                        }
+                        catch(Exception ex)
+                        {
+                            exception = new ProblemDetails(ex?.HelpLink!, response?.ReasonPhrase!, (int)response?.StatusCode!, ex?.Message!, "", null!);
+                        }
+                        break;
+                }
                 if(exception.InvalidParams is null)
                 {
                     string responseContent = response.Content.ReadAsStringAsync().Result;
@@ -39,7 +57,6 @@ namespace DrUalcman.Exceptions.Extensions
                         }
                     }
                 }
-
                 throw new ProblemDetailsException(exception);
             }
         }
@@ -55,7 +72,25 @@ namespace DrUalcman.Exceptions.Extensions
             if(response.IsSuccessStatusCode) return response;
             else
             {
-                ProblemDetails exception = await response.Content.ReadFromJsonAsync<ProblemDetails>();
+                ProblemDetails exception;
+                switch(response.StatusCode)
+                {
+                    case System.Net.HttpStatusCode.Unauthorized:
+                    case System.Net.HttpStatusCode.Forbidden:
+                    case System.Net.HttpStatusCode.NotFound:
+                        exception = new ProblemDetails("", response?.ReasonPhrase!, (int)response?.StatusCode!, "", "", null!);
+                        break;
+                    default:
+                        try
+                        {
+                            exception = await response.Content.ReadFromJsonAsync<ProblemDetails>();
+                        }
+                        catch(Exception ex)
+                        {
+                            exception = new ProblemDetails(ex?.HelpLink!, response?.ReasonPhrase!, (int)response?.StatusCode!, ex?.Message!, "", null!);
+                        }
+                        break;
+                }
                 if(exception.InvalidParams is null)
                 {
                     string responseContent = await response.Content.ReadAsStringAsync();
@@ -73,10 +108,8 @@ namespace DrUalcman.Exceptions.Extensions
                         }
                     }
                 }
-
                 throw new ProblemDetailsException(exception);
             }
         }
-
     }
 }

@@ -23,8 +23,8 @@
 		  Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.
 	  </Sumary>
-	  <PackageReleaseNotes>Fix a bug when the exception is not from DrUalcman.Exceptions.ProblemsDetailsException because is from ApiController ValidationException (for example) then don't show the correct invalidParamDetails. Add method EnsureSuccessCodeAsync() if want to use async actions</PackageReleaseNotes>
-	  <Version>1.0.5</Version>
+	  <PackageReleaseNotes>Control a possible exception when try to deserialize the response content.</PackageReleaseNotes>
+	  <Version>1.0.6</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
