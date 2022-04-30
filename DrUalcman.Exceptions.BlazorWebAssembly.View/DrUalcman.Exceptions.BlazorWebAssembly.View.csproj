@@ -19,8 +19,8 @@
 		  DrUalcman.Exceptions
 	  </Title>
 	  <Description>Encapsulate ErrorBoundary to use with DrUalcman.Exceptions to simplify how to use Erropr Boundary and show the errors depending of the exception or coming form a ProblemDetails</Description>
-	  <PackageReleaseNotes>Change Exception view when is a ProblemDetailsException don't show is a problem detail exception.</PackageReleaseNotes>
-	  <Version>1.0.4</Version>
+	  <PackageReleaseNotes>Control if exception is HttpResponseException to show the correct error message.</PackageReleaseNotes>
+	  <Version>1.0.5</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 

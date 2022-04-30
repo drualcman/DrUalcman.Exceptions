@@ -69,6 +69,38 @@
                     <hr/>                
                     @ex?.Detail
                 </div>
+            }    
+            else if (context.GetType() == typeof(HttpRequestException))
+            {
+                HttpRequestException ex = context as HttpRequestException;
+                <div>                    
+                    @switch(ex.StatusCode)
+                    {
+                        case System.Net.HttpStatusCode.Unauthorized:
+                        case System.Net.HttpStatusCode.Forbidden:
+                            @($"[{(int)ex.StatusCode}] {ex.StatusCode}")
+                            <p>Login Please</p>
+                            break;
+                        case System.Net.HttpStatusCode.NotFound:   
+                            <p>End point not found</p>
+                            break;
+                        default:    
+                            if(ex.StatusCode.HasValue)
+                            {
+                                @($"[{(int)ex.StatusCode}] {ex.StatusCode}")                                
+                            }
+                            @ex?.Message
+                            break;
+                    }   
+                    <hr/>       
+                    <p>
+                        @ex?.Source <br/>
+                        @if(!string.IsNullOrEmpty(ex.HelpLink))
+                        {
+                            <span>More info <a href="@ex.HelpLink" class="btn btn-link">here</a></span>                            
+                        }
+                    </p>    
+                </div>
             }
             else
             {

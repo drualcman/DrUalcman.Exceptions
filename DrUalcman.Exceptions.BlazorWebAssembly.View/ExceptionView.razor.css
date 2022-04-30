@@ -42,6 +42,20 @@ button {
     background-color: #dc3545;
     border-color: #dc3545;
 }
+    .btn-danger:hover {
+        color: #dc3545;
+        background-color: #fff;
+    }
+
+.btn-link {
+    color: #ECF3FF;
+    background-color: #2851A3;
+    border-color: #2851A3;
+}
+    .btn-link:hover {
+        color: #2851A3;
+        background-color: #ECF3FF;
+    }
 
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
     cursor: pointer;
