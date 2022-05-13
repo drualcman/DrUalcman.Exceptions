@@ -3,20 +3,21 @@
         @ChildContent
     </ChildContent>
     <ErrorContent>
+        @{ IsUnauthorize = false; }
         <div class="alert alert-danger">
-            @if (context.GetType() == typeof(ProblemDetailsException))
+            @if(context.GetType() == typeof(ProblemDetailsException))
             {
                 ProblemDetailsException ex = context as ProblemDetailsException;
                 <div>
                     @ex?.ProblemDetail.Instance [<a href="@ex?.ProblemDetail.Type" target="_blank">@ex?.ProblemDetail.Status</a>]
                     @ex?.ProblemDetail.Title
-                    <hr/>
+                    <hr />
                     @ex?.ProblemDetail.Detail
                 </div>
-                if (ex?.ProblemDetail.InvalidParams != null)
+                if(ex?.ProblemDetail.InvalidParams != null)
                 {
                     <ul>
-                        @foreach (var failure in ex.ProblemDetail.InvalidParams)
+                        @foreach(var failure in ex.ProblemDetail.InvalidParams)
                         {
                             <li>
                                 @failure.Key: @failure.Value
@@ -25,16 +26,16 @@
                     </ul>
                 }
             }
-            else if (context.GetType() == typeof(ValidationException))
+            else if(context.GetType() == typeof(ValidationException))
             {
                 ValidationException ex = context as ValidationException;
                 <div>
                     @ex?.Message
                 </div>
-                if (ex?.Failures != null)
+                if(ex?.Failures != null)
                 {
                     <ul>
-                        @foreach (var failure in ex.Failures)
+                        @foreach(var failure in ex.Failures)
                         {
                             <li>
                                 @failure.PropertyName: @failure.ErrorMessage
@@ -43,16 +44,16 @@
                     </ul>
                 }
             }
-            else if (context.GetType() == typeof(UpdateException))
+            else if(context.GetType() == typeof(UpdateException))
             {
                 UpdateException ex = context as UpdateException;
                 <div>
                     @ex?.Message
                 </div>
-                if (ex?.Entries != null)
+                if(ex?.Entries != null)
                 {
                     <ul>
-                        @foreach (var failure in ex.Entries)
+                        @foreach(var failure in ex.Entries)
                         {
                             <li>
                                 @failure
@@ -61,45 +62,57 @@
                     </ul>
                 }
             }
-            else if (context.GetType() == typeof(GeneralException))
+            else if(context.GetType() == typeof(GeneralException))
             {
-                GeneralException ex = context as GeneralException;                
+                GeneralException ex = context as GeneralException;
                 <div>
                     @ex?.Message
-                    <hr/>                
+                    <hr />
                     @ex?.Detail
                 </div>
-            }    
-            else if (context.GetType() == typeof(HttpRequestException))
+            }
+            else if(context.GetType() == typeof(HttpRequestException))
             {
                 HttpRequestException ex = context as HttpRequestException;
-                <div>                    
+                <div>
                     @switch(ex.StatusCode)
                     {
                         case System.Net.HttpStatusCode.Unauthorized:
                         case System.Net.HttpStatusCode.Forbidden:
+                            IsUnauthorize = true;
                             @($"[{(int)ex.StatusCode}] {ex.StatusCode}")
                             <p>Login Please</p>
                             break;
-                        case System.Net.HttpStatusCode.NotFound:   
+                        case System.Net.HttpStatusCode.NotFound:
                             <p>End point not found</p>
                             break;
-                        default:    
+                        default:
                             if(ex.StatusCode.HasValue)
                             {
-                                @($"[{(int)ex.StatusCode}] {ex.StatusCode}")                                
+                                @($"[{(int)ex.StatusCode}] {ex.StatusCode}")
                             }
                             @ex?.Message
                             break;
-                    }   
-                    <hr/>       
+                    }
+                    <hr />
                     <p>
                         @if(!string.IsNullOrEmpty(ex.HelpLink))
                         {
-                            <span>More info <a href="@ex.HelpLink" class="btn btn-link">here</a></span>                            
+                            <span>More info <a href="@ex.HelpLink" class="btn btn-link">here</a></span>
                         }
-                    </p>    
+                    </p>
                 </div>
+                @if(IsUnauthorize)
+                {                       
+                    @if(OnClick.HasDelegate)
+                    {
+                        <button class="btn btn-danger" @onclick=RecoverWithAction>@ToHtml(ButtonText)</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-danger" @onclick=BackToHome>@ToHtml(ButtonText)</button>
+                    }
+                }
             }
             else
             {
@@ -108,23 +121,28 @@
                 </div>
             }
         </div>
-        @if(OnClick.HasDelegate)
+        @if(!IsUnauthorize)
         {
-            <button class="btn btn-danger" @onclick=RecoverWithAction>@ToHtml(ButtonText)</button>
-        }
-        else
-        {
-            <button class="btn btn-danger" @onclick=Recover>@ToHtml(ButtonText)</button>            
+            @if(OnClick.HasDelegate)
+            {
+                <button class="btn btn-danger" @onclick=RecoverWithAction>@ToHtml(ButtonText)</button>
+            }
+            else
+            {
+                <button class="btn btn-danger" @onclick=Recover>@ToHtml(ButtonText)</button>
+            }
         }
     </ErrorContent>
 </ErrorBoundary>
 
 
 @code {
+    [Inject] public NavigationManager Navigation { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; }
-
     [Parameter] public string ButtonText { get; set; }
     [Parameter] public EventCallback OnClick { get; set; }
+
+    public bool IsUnauthorize  { get; private set; }
 
     /// <summary>
     /// capturar exceptiones
@@ -133,7 +151,7 @@
 
     void Recover()
     {
-        ErrorBoundaryRef?.Recover();        
+        ErrorBoundaryRef?.Recover();
     }
 
     Task RecoverWithAction()
@@ -141,6 +159,12 @@
         ErrorBoundaryRef?.Recover();
         OnClick.InvokeAsync();
         return Task.CompletedTask;
+    }  
+
+    void BackToHome()
+    {
+        ErrorBoundaryRef?.Recover();
+        Navigation.NavigateTo("", true);
     }
 
     protected override void OnParametersSet()
