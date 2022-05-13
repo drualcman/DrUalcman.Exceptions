@@ -94,7 +94,6 @@
                     }   
                     <hr/>       
                     <p>
-                        @ex?.Source <br/>
                         @if(!string.IsNullOrEmpty(ex.HelpLink))
                         {
                             <span>More info <a href="@ex.HelpLink" class="btn btn-link">here</a></span>                            
@@ -109,17 +108,23 @@
                 </div>
             }
         </div>
-        <button class="btn btn-danger" @onclick=Recover>@ToHtml(ButtonText)</button>
+        @if(OnClick.HasDelegate)
+        {
+            <button class="btn btn-danger" @onclick=RecoverWithAction>@ToHtml(ButtonText)</button>
+        }
+        else
+        {
+            <button class="btn btn-danger" @onclick=Recover>@ToHtml(ButtonText)</button>            
+        }
     </ErrorContent>
 </ErrorBoundary>
 
 
 @code {
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
 
-    [Parameter]
-    public string ButtonText { get; set; } = "OK";
+    [Parameter] public string ButtonText { get; set; }
+    [Parameter] public EventCallback OnClick { get; set; }
 
     /// <summary>
     /// capturar exceptiones
@@ -128,7 +133,20 @@
 
     void Recover()
     {
+        ErrorBoundaryRef?.Recover();        
+    }
+
+    Task RecoverWithAction()
+    {
         ErrorBoundaryRef?.Recover();
+        OnClick.InvokeAsync();
+        return Task.CompletedTask;
+    }
+
+    protected override void OnParametersSet()
+    {
+        if(OnClick.HasDelegate && string.IsNullOrEmpty(ButtonText)) ButtonText = "Try Again";
+        else ButtonText = "OK";
     }
 
     /// <summary>
