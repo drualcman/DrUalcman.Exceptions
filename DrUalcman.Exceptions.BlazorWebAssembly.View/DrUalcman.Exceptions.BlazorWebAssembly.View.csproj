@@ -18,9 +18,9 @@
 	  <Title>
 		  DrUalcman.Exceptions
 	  </Title>
-	  <Description>Encapsulate ErrorBoundary to use with DrUalcman.Exceptions to simplify how to use Erropr Boundary and show the errors depending of the exception or coming form a ProblemDetails</Description>
-	  <PackageReleaseNotes>Add EventCallback to personalize how is working the error button to confirm the message. Expose a public boolean to know if the error it's from a Unauthorize response from HttpRequestException</PackageReleaseNotes>
-	  <Version>1.0.7</Version>
+	  <Description>Encapsulate ErrorBoundary to use with DrUalcman.Exceptions to simplify how to use Error Boundary and show the errors depending of the exception or coming form a ProblemDetails</Description>
+	  <PackageReleaseNotes>Fixed detect Unautorization or Forbriden action when the exception return a ProblemDetailsException</PackageReleaseNotes>
+	  <Version>1.0.8</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
