@@ -24,16 +24,18 @@ public class ValidationExceptionHandler : IExceptionHandler<ValidationException>
             Instance = exception?.Source ?? "",
             InvalidParams = new Dictionary<string, string>()
         };
-
-        foreach (var failure in exception.Failures)
+        if(exception != null && exception.Failures != null && exception.Failures.Any())
         {
-            if (ProblemDetails.InvalidParams.ContainsKey(failure.PropertyName))
+            foreach(var failure in exception.Failures)
             {
-                ProblemDetails.InvalidParams[failure.PropertyName] += " " + failure.ErrorMessage;
-            }
-            else
-            {
-                ProblemDetails.InvalidParams.Add(failure.PropertyName, failure.ErrorMessage);
+                if(ProblemDetails.InvalidParams.ContainsKey(failure.PropertyName))
+                {
+                    ProblemDetails.InvalidParams[failure.PropertyName] += " " + failure.ErrorMessage;
+                }
+                else
+                {
+                    ProblemDetails.InvalidParams.Add(failure.PropertyName, failure.ErrorMessage);
+                }
             }
         }
         return ValueTask.FromResult(ProblemDetails);
