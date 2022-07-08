@@ -24,7 +24,7 @@ public class UpdateExceptionHandler : IExceptionHandler<UpdateException>
             Instance = exception?.Source ?? "",
             InvalidParams = new Dictionary<string, string>()
         };
-        problemDetails.InvalidParams.Add("entries", string.Join(",", exception.Entries));
+        problemDetails.InvalidParams.Add("entries", string.Join(",", exception?.Entries ?? new string[] { } ));
         return ValueTask.FromResult(problemDetails);
     }
 }
