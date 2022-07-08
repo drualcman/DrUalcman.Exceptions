@@ -28,6 +28,23 @@ namespace DrUalcman.Exceptions.Extensions
                     case System.Net.HttpStatusCode.Forbidden:
                     case System.Net.HttpStatusCode.NotFound:
                         exception = new ProblemDetails("", response?.ReasonPhrase!, (int)response?.StatusCode!, "", "", null!);
+                        string responseContent = response.Content.ReadAsStringAsync().Result;
+                        if(!string.IsNullOrEmpty(responseContent))
+                        {
+                            string invalidParams = Regex.Match(responseContent, "{[^{^}]*}").Value;
+                            if(!string.IsNullOrEmpty(invalidParams))
+                            {
+                                IDictionary<string, string[]> keyValuePairs = JsonSerializer.Deserialize<IDictionary<string, string[]>>(invalidParams)!;
+                                if(keyValuePairs != null)
+                                {
+                                    exception.InvalidParams = new Dictionary<string, string>();
+                                    foreach(KeyValuePair<string, string[]> item in keyValuePairs)
+                                    {
+                                        exception.InvalidParams.TryAdd(item.Key, string.Join('.', item.Value));
+                                    }
+                                }
+                            }
+                        }
                         break;
                     default:
                         try
@@ -36,26 +53,9 @@ namespace DrUalcman.Exceptions.Extensions
                         }
                         catch(Exception ex)
                         {
-                            exception = new ProblemDetails(ex?.HelpLink!, response?.ReasonPhrase!, (int)response?.StatusCode!, ex?.Message!, "", null!);
+                            exception = new ProblemDetails(ex?.HelpLink!, response?.ReasonPhrase!, (int)response?.StatusCode!, ex?.Message!, "", new Dictionary<string, string>());
                         }
                         break;
-                }
-                if(exception.InvalidParams is null)
-                {
-                    string responseContent = response.Content.ReadAsStringAsync().Result;
-                    string invalidParams = Regex.Match(responseContent, "{[^{^}]*}").Value;
-                    if(!string.IsNullOrEmpty(invalidParams))
-                    {
-                        IDictionary<string, string[]> keyValuePairs = JsonSerializer.Deserialize<IDictionary<string, string[]>>(invalidParams)!;
-                        if(keyValuePairs != null)
-                        {
-                            exception.InvalidParams = new Dictionary<string, string>();
-                            foreach(KeyValuePair<string, string[]> item in keyValuePairs)
-                            {
-                                exception.InvalidParams.TryAdd(item.Key, string.Join('.', item.Value));
-                            }
-                        }
-                    }
                 }
                 throw new ProblemDetailsException(exception);
             }
