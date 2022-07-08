@@ -22,12 +22,12 @@
 	  <Sumary>Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.</Sumary>
 	  <PackageReleaseNotes>Update nuggets to last version</PackageReleaseNotes>
-	  <Version>1.0.3</Version>
+	  <Version>1.0.4</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DrUalcman.Exceptions.Extensions" Version="1.0.5" />
+		<PackageReference Include="DrUalcman.Exceptions.Extensions" Version="1.0.7" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />

@@ -21,8 +21,8 @@
 	  <Description>Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project. 
 Always return a ProblemDetails following the standart rfc7807. 
 Have a ProblemDetailsException for can generate directly a exception with the standart rfc7807 from some type HttpClient. </Description>
-    <PackageReleaseNotes>Fixed a bug not initialize property InvalidParams in UpdateExceptionHandler and ValidationExceptionHandler fro can add teh invalidParams found.</PackageReleaseNotes>
-    <Version>1.0.3</Version>
+    <PackageReleaseNotes>Fixed possible exception when no entries with UpdateException and improve to not loop a empty object..</PackageReleaseNotes>
+    <Version>1.0.4</Version>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
