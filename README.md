@@ -1,11 +1,15 @@
-[![Nuget DrUalcman.Exceptions](https://img.shields.io/nuget/v/DrUalcman.Exceptions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions](https://www.nuget.org/packages/DrUalcman.Exceptions))
-[![Nuget DrUalcman.Exceptions](https://img.shields.io/nuget/dt/DrUalcman.Exceptions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions](https://www.nuget.org/packages/DrUalcman.Exceptions))
-[![Nuget DrUalcman.Exceptions.Extensions](https://img.shields.io/nuget/v/DrUalcman.Exceptions.Extensions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions](https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions))
+ ### DrUalcman.Exceptions
+[![Nuget](https://img.shields.io/nuget/v/DrUalcman.Exceptions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions](https://www.nuget.org/packages/DrUalcman.Exceptions))
+[![Nuget](https://img.shields.io/nuget/dt/DrUalcman.Exceptions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions](https://www.nuget.org/packages/DrUalcman.Exceptions))
+### DrUalcman.Exceptions.Extensions
+[![Nuget](https://img.shields.io/nuget/v/DrUalcman.Exceptions.Extensions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions](https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions))
 [![Nuget DrUalcman.Exceptions.Extensions](https://img.shields.io/nuget/dt/DrUalcman.Exceptions.Extensions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions](https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions))
-[![Nuget DrUalcman.Exceptions.MiddleWare](https://img.shields.io/nuget/v/DrUalcman.Exceptions.MiddleWare?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare](https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare))
-[![Nuget DrUalcman.Exceptions.MiddleWare](https://img.shields.io/nuget/dt/DrUalcman.Exceptions.MiddleWare?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare](https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare))
-[![Nuget DrUalcman.Exceptions.BlazorWebAssembly.View](https://img.shields.io/nuget/v/DrUalcman.Exceptions.BlazorWebAssembly.View?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View](https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View))
-[![Nuget DrUalcman.Exceptions.BlazorWebAssembly.View](https://img.shields.io/nuget/dt/DrUalcman.Exceptions.BlazorWebAssembly.View?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View](https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View))
+### DrUalcman.Exceptions.MiddleWare
+[![Nuget](https://img.shields.io/nuget/v/DrUalcman.Exceptions.MiddleWare?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare](https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare))
+[![Nuget](https://img.shields.io/nuget/dt/DrUalcman.Exceptions.MiddleWare?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare](https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare))
+### DrUalcman.Exceptions.BlazorWebAssembly.View
+[![Nuget](https://img.shields.io/nuget/v/DrUalcman.Exceptions.BlazorWebAssembly.View?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View](https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View))
+[![Nuget](https://img.shields.io/nuget/dt/DrUalcman.Exceptions.BlazorWebAssembly.View?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View](https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View))
 
 # DrUalcman.Exceptions
 Manage 4 most common exceptions with a default handler using clean architecture. Can be used in any kind of project. 
