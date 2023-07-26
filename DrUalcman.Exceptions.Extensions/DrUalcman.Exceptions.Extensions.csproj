@@ -20,17 +20,17 @@
 	  </Title>
 	  <Description>Add easy DrUalcman.Exceptions to the Service Container</Description>
 	  <Sumary>
-		  Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
+		  Manage 4 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.
 	  </Sumary>
-	  <PackageReleaseNotes>Fixed issue when the exception is not from aproble detailsa and it'sa  a unauthorize exception (1.0.7). Update las version of nugets.</PackageReleaseNotes>
-	  <Version>1.0.8</Version>
+	  <PackageReleaseNotes>Update nugget last version.</PackageReleaseNotes>
+	  <Version>1.1.5</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DrUalcman.Exceptions" Version="1.0.4" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+		<PackageReference Include="DrUalcman.Exceptions" Version="1.1.5" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
 	</ItemGroup>
 
 
