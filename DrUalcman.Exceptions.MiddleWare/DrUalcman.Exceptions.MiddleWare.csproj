@@ -21,7 +21,7 @@
 	  <Description>Add easy a middleware to DrUalcman.Exceptions</Description>
 	  <Sumary>Manage 4 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.</Sumary>
-	  <PackageReleaseNotes>Update nuggets to last version</PackageReleaseNotes>
+	  <PackageReleaseNotes>Update nuggets and use framework. Changes in Middleware to keep the new version of the code correctly.</PackageReleaseNotes>
 	  <Version>1.1.5</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
