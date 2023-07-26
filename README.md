@@ -1,5 +1,14 @@
+[![Nuget](https://img.shields.io/nuget/v/DrUalcman.Exceptions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions](https://www.nuget.org/packages/DrUalcman.Exceptions))
+[![Nuget](https://img.shields.io/nuget/dt/DrUalcman.Exceptions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions](https://www.nuget.org/packages/DrUalcman.Exceptions))
+[![Nuget](https://img.shields.io/nuget/v/DrUalcman.Exceptions.Extensions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions](https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions))
+[![Nuget](https://img.shields.io/nuget/dt/DrUalcman.Exceptions.Extensions?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions](https://www.nuget.org/packages/DrUalcman.Exceptions.Extensions))
+[![Nuget](https://img.shields.io/nuget/v/DrUalcman.Exceptions.MiddleWare?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare](https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare))
+[![Nuget](https://img.shields.io/nuget/dt/DrUalcman.Exceptions.MiddleWare?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare](https://www.nuget.org/packages/DrUalcman.Exceptions.MiddleWare))
+[![Nuget](https://img.shields.io/nuget/v/DrUalcman.Exceptions.BlazorWebAssembly.View?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View](https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View))
+[![Nuget](https://img.shields.io/nuget/dt/DrUalcman.Exceptions.BlazorWebAssembly.View?style=for-the-badge)]([https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View](https://www.nuget.org/packages/DrUalcman.Exceptions.BlazorWebAssembly.View))
+
 # DrUalcman.Exceptions
-Manage 3 most common exceptions with a default handler using clean architecture. Can be used in any kind of project. 
+Manage 4 most common exceptions with a default handler using clean architecture. Can be used in any kind of project. 
 Always return a ProblemDetails following the standart rfc7807.
 
 # NuGet installation
