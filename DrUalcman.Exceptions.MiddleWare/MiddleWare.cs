@@ -18,12 +18,12 @@ class MiddleWare
     /// <param name="includeDetails"></param>
     /// <param name="presenter"></param>
     /// <returns></returns>
-    public static async Task WriteResponse(HttpContext context, bool includeDetails, IExceptionPresenter presenter)
+    public static async Task WriteResponse(HttpContext context, RequestDelegate next, bool includeDetails, IExceptionPresenter presenter)
     {
         IExceptionHandlerFeature exceptionDetail = context.Features.Get<IExceptionHandlerFeature>();
         Exception exception = exceptionDetail.Error;
 
-        if (exception != null)
+        if(exception != null)
         {
             await presenter.Handle(exception, includeDetails);
             context.Response.ContentType = "application/problem+json";
@@ -31,5 +31,7 @@ class MiddleWare
             var stream = context.Response.Body;
             await JsonSerializer.SerializeAsync(stream, presenter.Content);
         }
+        else
+            await next.Invoke(context);
     }
 }
