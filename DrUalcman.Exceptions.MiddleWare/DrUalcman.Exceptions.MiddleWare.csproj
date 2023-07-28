@@ -22,7 +22,7 @@
 	  <Sumary>Manage 4 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.</Sumary>
 	  <PackageReleaseNotes>Update nuggets and use framework. Changes in Middleware to keep the new version of the code correctly.</PackageReleaseNotes>
-	  <Version>1.1.5</Version>
+	  <Version>1.1.6</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
@@ -30,7 +30,7 @@
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="DrUalcman.Exceptions.Extensions" Version="1.0.8" />
+		<PackageReference Include="DrUalcman.Exceptions.Extensions" Version="1.1.5" />
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
 	</ItemGroup>
 
