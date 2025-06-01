@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+	  <TargetFrameworks>net6.0;net9.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -23,14 +23,15 @@
 		  Manage 4 most common exceptions with a default handler using clean architecture. Can be used in any kind of project.
 		  Always return a ProblemDetails following the standart rfc7807.
 	  </Sumary>
-	  <PackageReleaseNotes>Update nugget last version.</PackageReleaseNotes>
-	  <Version>1.1.5</Version>
+	  <PackageReleaseNotes>Update license and dependencies. Add support to NET 9.</PackageReleaseNotes>
+	  <Version>1.1.6</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DrUalcman.Exceptions" Version="1.1.5" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
+		<PackageReference Include="DrUalcman.Exceptions" Version="1.1.6" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.2" Condition="'$(TargetFramework)' == 'net6.0'"/>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" Condition="'$(TargetFramework)' == 'net9.0'"/>
 	</ItemGroup>
 
 

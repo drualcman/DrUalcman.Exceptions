@@ -57,12 +57,27 @@ public class ValidationException : Exception
     public ValidationException(string message, IEnumerable<KeyValuePair<string, string>> failues) : base(message)
     {
         Failures = new List<Failure>();
-        foreach (var failure in failues)
+        foreach(var failure in failues)
         {
-            if (Failures.FirstOrDefault(f=> f.PropertyName == failure.Key && f.ErrorMessage == failure.Value) is null)
+            if(Failures.FirstOrDefault(f => f.PropertyName == failure.Key && f.ErrorMessage == failure.Value) is null)
             {
                 Failures.Append(new Failure(failure.Key, failure.Value));
             }
+        }
+    }
+
+    /// <summary>
+    /// Constructor can receive collection of IFailure and message
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="failues"></param>
+    public ValidationException(string message, IEnumerable<IFailure> failues) : base(message)
+    {
+        Failures = new List<Failure>();
+
+        foreach(var failure in failues)
+        {
+            Failures.Append(failure);
         }
     }
 }

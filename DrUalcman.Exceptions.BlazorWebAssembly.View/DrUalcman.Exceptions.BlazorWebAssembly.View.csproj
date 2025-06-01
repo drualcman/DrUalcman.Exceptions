@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+	  <TargetFrameworks>net6.0;net9.0</TargetFrameworks>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -19,8 +19,8 @@
 		  DrUalcman.Exceptions
 	  </Title>
 	  <Description>Encapsulate ErrorBoundary to use with DrUalcman.Exceptions to simplify how to use Error Boundary and show the errors depending of the exception or coming form a ProblemDetails</Description>
-	  <PackageReleaseNotes>Update nueggetgget last version</PackageReleaseNotes>
-	  <Version>1.1.5</Version>
+	  <PackageReleaseNotes>Update license and dependencies</PackageReleaseNotes>
+	  <Version>1.1.6</Version>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
@@ -30,8 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DrUalcman.Exceptions" Version="1.1.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.20" />
+    <PackageReference Include="DrUalcman.Exceptions" Version="1.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.36" Condition="'$(TargetFramework)' == 'net6.0'" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.5" Condition="'$(TargetFramework)' == 'net9.0'" />
   </ItemGroup>
 
   <ItemGroup>
